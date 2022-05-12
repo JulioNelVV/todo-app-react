@@ -6,29 +6,26 @@ import "./App.css"
 function App({initialTodos}) {
     //Declaring the state
     const [todos, setTodos]=useState(initialTodos);
-    
+    const [editTodo, setEditTodo]=useState({
+        index: -1,
+        name: "",
+        isDone: false
+    });
     //Functions to manipulate the todo list
     //Create a todo: wait for a new todo list
-    const createTodo=(newTodos)=>{
-        setTodos(newTodos)
+    const updateTodos=(newTodos)=>{
+        setTodos(newTodos);
     }
-    //Edit a todo: wait for a new list
-    const editTodo=(newTodos)=>{
-        setTodos(newTodos)
-    }
-    //Delete a todo: wait for a new list
-    const deletTodo=(index)=>{
-
-    }
+    
     return(
         
         <div className="App">
-         
             <h1>Todo App</h1>
-            
             <FormTodo
                 todos={todos}
-                createTodo={(newTodos)=>{createTodo(newTodos)}}
+                updateTodos={(newTodos)=>{updateTodos(newTodos)}}
+                editTodo={editTodo}
+                setEditTodo={(editTodo)=>{setEditTodo(editTodo)}}
             />
             <ul>
                 {
@@ -36,13 +33,17 @@ function App({initialTodos}) {
                         return(
                             <Todo
                                 todos={todos}
-                                editTodo={(newTodos)=>{
-                                    editTodo(newTodos)
+                                updateTodos={(newTodos)=>{
+                                    updateTodos(newTodos)
                                 }}
                                 key={index}
                                 index={index}
                                 name={todo.name}
                                 isDone={todo.isDone}
+                                editTodo={editTodo}
+                                setEditTodo={(EditTodo)=>{
+                                    setEditTodo(EditTodo)
+                                }}
                             />
                         )
                     })

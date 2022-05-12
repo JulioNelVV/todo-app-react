@@ -1,18 +1,23 @@
 import { useEffect, useState } from "react";
 
 
-function Todo({todos, editTodo, name, index, isDone}){
-    const [done, setDone]=useState(false)
+function Todo({todos, updateTodos, name, index, isDone, editTodo, setEditTodo}){
+    const [done, setDone]=useState(isDone)
     let newTodos=[...todos];
     newTodos[index].isDone=done;
 
     const onChangeHandler=()=>{
         setDone(!done)
-        editTodo(newTodos)
+        updateTodos(newTodos)
+    }
+    const editHandler=()=>{
+        
+        setEditTodo(newTodos[index])
+       
     }
     const DeleteHandler=()=>{
         let result=newTodos.filter((todo,pos)=>pos!==index)
-        editTodo(result)
+        updateTodos(result)
     }
     
     return(
@@ -26,6 +31,7 @@ function Todo({todos, editTodo, name, index, isDone}){
             <input 
                 type="button"
                 value="Edit"
+                onClick={editHandler}
             />
             <input 
                 type="button"

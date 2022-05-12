@@ -1,27 +1,50 @@
-import userEvent from "@testing-library/user-event";
 import { useEffect, useState } from "react";
 
-function FormTodo({todos,createTodo}){
+function FormTodo({todos,updateTodos, editTodo, setEditTodo}){
 
     const [name, setName]=useState("");
     
     const onSubmitHandler=(e)=>{
+
         e.preventDefault();
+        let newTodo, newTodos;
+        newTodos=[...todos]
         if(name===""||name===undefined)return;
-        let newTodo={
-            index:todos.length,
-            name: name,
-            isDone: false
+        if(editTodo.name===""){
+            let newTodo={
+                index:todos.length,
+                name: name,
+                isDone: false
+            }
+            
+            updateTodos([...newTodos,newTodo])
+            setName("");
+        }else{
+            
+            newTodos[editTodo.index]={
+                index: editTodo.index,
+                name: name,
+                isDone: editTodo.isDone
+            };
+            updateTodos(newTodos)
+            setEditTodo({
+                index: -1,
+                name: "",
+                isDone: false
+            })
+            setName("");
         }
-        let newTodos=[...todos,newTodo]
-        createTodo(newTodos)
+        
+        
     }
     const onChangeHandler=(e)=>{
         setName(e.target.value)
     }
+    
     useEffect(()=>{
-        setName("")
-    },[todos])
+        setName(editTodo.name)
+    },[editTodo])
+    
     return(
         <form onSubmit={onSubmitHandler}>
             <input
