@@ -5,7 +5,7 @@ import "./App.css"
 
 function App({initialTodos}) {
     //Declaring the state
-    const [todos, setTodos]=useState(initialTodos);
+    const [todos, setTodos]=useState([]);
     const [editTodo, setEditTodo]=useState({
         index: -1,
         name: "",
@@ -29,6 +29,10 @@ function App({initialTodos}) {
             />
             <ul>
                 {
+                    todos.length===0
+                    ?
+                    <li>There's no pending to do tasks</li>
+                    :
                     todos.map((todo, index)=>{
                         return(
                             <Todo

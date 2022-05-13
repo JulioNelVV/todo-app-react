@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function FormTodo({todos,updateTodos, editTodo, setEditTodo}){
 
     const [name, setName]=useState("");
-    
+    const [submitValue, setSubmitValue]=useState("Add")
+    const nameInput=useRef();
     const onSubmitHandler=(e)=>{
 
         e.preventDefault();
-        let newTodo, newTodos;
+        let newTodos;
         newTodos=[...todos]
         if(name===""||name===undefined)return;
         if(editTodo.name===""){
@@ -19,6 +20,8 @@ function FormTodo({todos,updateTodos, editTodo, setEditTodo}){
             
             updateTodos([...newTodos,newTodo])
             setName("");
+            setSubmitValue("Add")
+           
         }else{
             
             newTodos[editTodo.index]={
@@ -33,8 +36,9 @@ function FormTodo({todos,updateTodos, editTodo, setEditTodo}){
                 isDone: false
             })
             setName("");
+            setSubmitValue("Add")
         }
-        
+        nameInput.current.focus();
         
     }
     const onChangeHandler=(e)=>{
@@ -42,7 +46,16 @@ function FormTodo({todos,updateTodos, editTodo, setEditTodo}){
     }
     
     useEffect(()=>{
+        
         setName(editTodo.name)
+        nameInput.current.focus();
+        if(editTodo.name===""){
+            setSubmitValue("Add");
+        }else{
+            setSubmitValue("Edit");
+        }
+        
+        
     },[editTodo])
     
     return(
@@ -52,9 +65,9 @@ function FormTodo({todos,updateTodos, editTodo, setEditTodo}){
                 placeholder="Add todo"
                 value={name}
                 onChange={onChangeHandler}
+                ref={nameInput}
                 />
-            <input type="submit" value="Add"/>
-            
+            <input type="submit" value={submitValue}/>
         </form>
     )
 }
