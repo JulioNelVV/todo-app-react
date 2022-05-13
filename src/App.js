@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Todo from "./components/Todo.js";
 import FormTodo from "./components/FormTodo.js"
 import "./App.css"
 
-function App({initialTodos}) {
+function App() {
     //Declaring the state
-    const [todos, setTodos]=useState([]);
+    
+    const [todos, setTodos]=useState(()=>{
+        //getting store values in the localStorage object
+        const initialTodos=JSON.parse(localStorage.getItem("todos"));
+        return initialTodos || [];
+    });
     const [editTodo, setEditTodo]=useState({
         index: -1,
         name: "",
@@ -17,6 +22,10 @@ function App({initialTodos}) {
         setTodos(newTodos);
     }
     
+    useEffect(()=>{
+
+        localStorage.setItem("todos",JSON.stringify(todos))
+    },[todos])
     return(
         
         <div className="App">

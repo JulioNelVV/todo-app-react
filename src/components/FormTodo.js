@@ -41,8 +41,8 @@ function FormTodo({todos,updateTodos, editTodo, setEditTodo}){
         nameInput.current.focus();
         
     }
-    const onChangeHandler=(e)=>{
-        setName(e.target.value)
+    const onChangeHandler=()=>{
+        setName(nameInput.current.value)
     }
     
     useEffect(()=>{

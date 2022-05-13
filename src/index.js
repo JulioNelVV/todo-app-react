@@ -5,9 +5,9 @@ import App from './App';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-let initialTodos=[{index:0,name:"ABC", isDone: false}]
+
 root.render(
   <React.StrictMode>
-    <App initialTodos={initialTodos}/>
+    <App />
   </React.StrictMode>
 );
