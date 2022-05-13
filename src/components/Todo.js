@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 function Todo({todos, updateTodos, name, index, isDone, editTodo, setEditTodo}){
     const [done, setDone]=useState(isDone)
+    const [disable, setDisable]=useState(false)
     let newTodos=[...todos];
     newTodos[index].isDone=done;
 
@@ -19,7 +20,13 @@ function Todo({todos, updateTodos, name, index, isDone, editTodo, setEditTodo}){
         let result=newTodos.filter((todo,pos)=>pos!==index)
         updateTodos(result)
     }
-    
+    useEffect(()=>{
+        if(editTodo.name!==""){
+            setDisable(true)
+        }else{
+            setDisable(false)
+        }
+    },[editTodo])
     return(
         <li>
             <input
@@ -32,11 +39,13 @@ function Todo({todos, updateTodos, name, index, isDone, editTodo, setEditTodo}){
                 type="button"
                 value="Edit"
                 onClick={editHandler}
+                disabled={disable}
             />
             <input 
                 type="button"
                 value="Delete"
                 onClick={DeleteHandler}
+                disabled={disable}
             /> 
         </li>
     )
