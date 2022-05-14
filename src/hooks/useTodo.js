@@ -11,7 +11,8 @@ const useTodo=(todos, index, isDone, editIndex, setEditIndex, toggleIsDone, dele
     }
 
     const editHandler=()=>{
-        setEditIndex(newTodos[index].index)
+        setEditIndex(index)
+        
     }
     const deleteHandler=()=>{
         deleteTodo(newTodos,index)

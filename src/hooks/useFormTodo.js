@@ -35,6 +35,7 @@ const useFormTodo=(todos,createTodo, editTodo, editIndex)=>{
             setName("")
             setSubmitValue("Add");
         }else{
+            
             setName(newTodos[editIndex].name)
             setSubmitValue("Edit");
         }
