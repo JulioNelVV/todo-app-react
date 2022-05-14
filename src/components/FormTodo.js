@@ -1,62 +1,16 @@
-import { useEffect, useRef, useState } from "react";
 
-function FormTodo({todos,updateTodos, editTodo, setEditTodo}){
+import useFormTodo from "../hooks/useFormTodo";
 
-    const [name, setName]=useState("");
-    const [submitValue, setSubmitValue]=useState("Add")
-    const nameInput=useRef();
-    const onSubmitHandler=(e)=>{
-
-        e.preventDefault();
-        let newTodos;
-        newTodos=[...todos]
-        if(name===""||name===undefined)return;
-        if(editTodo.name===""){
-            let newTodo={
-                index:todos.length,
-                name: name,
-                isDone: false
-            }
-            
-            updateTodos([...newTodos,newTodo])
-            setName("");
-            setSubmitValue("Add")
-           
-        }else{
-            
-            newTodos[editTodo.index]={
-                index: editTodo.index,
-                name: name,
-                isDone: editTodo.isDone
-            };
-            updateTodos(newTodos)
-            setEditTodo({
-                index: -1,
-                name: "",
-                isDone: false
-            })
-            setName("");
-            setSubmitValue("Add")
-        }
-        nameInput.current.focus();
-        
-    }
-    const onChangeHandler=()=>{
-        setName(nameInput.current.value)
-    }
+function FormTodo({todos,createTodo, editTodo, editIndex}){
+    //Declaring FormTodo hook
+    const {
+        name,
+        onChangeHandler,
+        onSubmitHandler,
+        submitValue,
+        nameInput
+    }=useFormTodo(todos,createTodo, editTodo, editIndex)
     
-    useEffect(()=>{
-        
-        setName(editTodo.name)
-        nameInput.current.focus();
-        if(editTodo.name===""){
-            setSubmitValue("Add");
-        }else{
-            setSubmitValue("Edit");
-        }
-        
-        
-    },[editTodo])
     
     return(
         <form onSubmit={onSubmitHandler}>

@@ -1,32 +1,18 @@
 import { useEffect, useState } from "react";
+import useTodo from "../hooks/useTodo";
 
 
-function Todo({todos, updateTodos, name, index, isDone, editTodo, setEditTodo}){
-    const [done, setDone]=useState(isDone)
-    const [disable, setDisable]=useState(false)
-    let newTodos=[...todos];
-    newTodos[index].isDone=done;
+function Todo({todos, name, index, isDone, editIndex, setEditIndex, toggleIsDone, deleteTodo}){
+    //Declaring the Todo hook
+    const {
+        done,
+        onChangeHandler,
+        editHandler,
+        disable, 
+        deleteHandler
+    }=useTodo(todos, index, isDone, editIndex, setEditIndex, toggleIsDone, deleteTodo)
+ 
 
-    const onChangeHandler=()=>{
-        setDone(!done)
-        updateTodos(newTodos)
-    }
-    const editHandler=()=>{
-        
-        setEditTodo(newTodos[index])
-       
-    }
-    const DeleteHandler=()=>{
-        let result=newTodos.filter((todo,pos)=>pos!==index)
-        updateTodos(result)
-    }
-    useEffect(()=>{
-        if(editTodo.name!==""){
-            setDisable(true)
-        }else{
-            setDisable(false)
-        }
-    },[editTodo])
     return(
         <li>
             <input
@@ -44,7 +30,7 @@ function Todo({todos, updateTodos, name, index, isDone, editTodo, setEditTodo}){
             <input 
                 type="button"
                 value="Delete"
-                onClick={DeleteHandler}
+                onClick={deleteHandler}
                 disabled={disable}
             /> 
         </li>
