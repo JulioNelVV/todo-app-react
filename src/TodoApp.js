@@ -2,6 +2,7 @@ import Todo from "./components/Todo.js";
 import FormTodo from "./components/FormTodo.js"
 import "./App.css"
 import useTodoApp from "./hooks/useTodoApp.js";
+import Filter from "./components/Filter.js";
 
 function TodoApp() {
     //Declaring the global hook
@@ -19,6 +20,7 @@ function TodoApp() {
         
         <div className="App">
             <h1>Todo App</h1>
+            <Filter/>
             <FormTodo
                 todos={todos}
                 createTodo={createTodo}

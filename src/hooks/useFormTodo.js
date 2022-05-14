@@ -12,9 +12,8 @@ const useFormTodo=(todos,createTodo, editTodo, editIndex)=>{
 
         if(editIndex===-1){
             const newTodo={
-                index:todos.length,
                 name: name,
-                isDone: false
+                isDone: false,
             }
             createTodo(newTodos,newTodo)
         }else{
