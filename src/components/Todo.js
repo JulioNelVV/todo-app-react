@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import useTodo from "../hooks/useTodo";
+import "../styles/Todo.css"
 
-
-function Todo({todos, name, index, isDone, editIndex, setEditIndex, toggleIsDone, deleteTodo}){
+function Todo({todos, name, index, isDone, isVisible, editIndex, setEditIndex, toggleIsDone, deleteTodo}){
     //Declaring the Todo hook
     const {
         done,
@@ -14,7 +14,7 @@ function Todo({todos, name, index, isDone, editIndex, setEditIndex, toggleIsDone
  
 
     return(
-        <li>
+        <li className={isVisible?"show":"hide"}>
             <input
                 type="checkbox"
                 value={done}

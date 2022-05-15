@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-function Filter(){
+function Filter({todos, toggleIsVisible}){
     const [filterValue, setFilterValue]=useState("All");
-    const onChangeHandler=(e)=>{
-        setFilterValue(e.target.value)
-       
+    const selectValue=useRef();
+    const newTodos=[...todos];
+    const onChangeHandler=()=>{
+        setFilterValue(selectValue.current.value)
     }
     useEffect(()=>{
-        
+        toggleIsVisible(newTodos, filterValue);    
     },[filterValue])
     return(
         <div>
@@ -15,6 +16,7 @@ function Filter(){
             <select
                 value={filterValue}
                 onChange={onChangeHandler}
+                ref={selectValue}
             >
                 <option>All</option>
                 <option>In progress</option>
