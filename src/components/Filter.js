@@ -1,15 +1,12 @@
 import { useEffect, useRef, useState } from "react";
+import useFilter from "../hooks/useFilter.js";
 
 function Filter({todos, toggleIsVisible}){
-    const [filterValue, setFilterValue]=useState("All");
-    const selectValue=useRef();
-    const newTodos=[...todos];
-    const onChangeHandler=()=>{
-        setFilterValue(selectValue.current.value)
-    }
-    useEffect(()=>{
-        toggleIsVisible(newTodos, filterValue);    
-    },[filterValue])
+    const {
+        filterValue,
+        onChangeHandler,
+        selectValue
+   }=useFilter(todos, toggleIsVisible)
     return(
         <div>
             <label>Show: </label>
