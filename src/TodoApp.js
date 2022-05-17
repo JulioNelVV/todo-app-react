@@ -20,7 +20,7 @@ function TodoApp() {
         deleteCategory
         
     }=useTodoApp();
-   
+
     return(
         
         <div className="App">
@@ -42,24 +42,32 @@ function TodoApp() {
                     ?
                     <li>There's no pending to do tasks</li>
                     :
-                    todos.map((todo, index)=>{
-                        return(
-                            <Todo
-                                todos={todos}
-                                key={`${todo.name}-${index}-${String(todo.isDone)}}`}
-                                index={index}
-                                name={todo.name}
-                                isDone={todo.isDone}
-                                isVisible={todo.isVisible}
-                                editIndex={editIndex}
-                                setEditIndex={setEditIndex}
-                                deleteTodo={deleteTodo}
-                                toggleIsDone={toggleIsDone}
-                                currentCategory={currentCategory}
-                                toggleIsVisible={toggleIsVisible}
-                            />
-                        )
-                    })
+                    (
+                        todos.every((todo)=>todo.isVisible===false)
+                        ?
+                        <li>The {currentCategory} is empty</li>
+                        :
+                        todos.map((todo, index)=>{
+
+                            return(
+                                <Todo
+                                    todos={todos}
+                                    key={`${todo.name}-${index}-${String(todo.isDone)}}`}
+                                    index={index}
+                                    name={todo.name}
+                                    isDone={todo.isDone}
+                                    isVisible={todo.isVisible}
+                                    editIndex={editIndex}
+                                    setEditIndex={setEditIndex}
+                                    deleteTodo={deleteTodo}
+                                    toggleIsDone={toggleIsDone}
+                                    currentCategory={currentCategory}
+                                    toggleIsVisible={toggleIsVisible}
+                                />
+                            )
+                        })
+                    )
+                    
                 }
             </ul>
             <input

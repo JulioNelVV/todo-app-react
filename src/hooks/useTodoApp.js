@@ -26,12 +26,20 @@ import { useEffect, useState } from "react";
     }
     const toggleIsVisible=(currentCategory)=>{
         let list=[...todos];
+  
         switch(currentCategory){
+            case "All":
+                list=todos.map((todo)=>{
+                    todo.isVisible=true;
+                    return todo;
+                })
+                break;
             case "In progress":
                 list=todos.map((todo)=>{
                     todo.isDone?todo.isVisible=false:todo.isVisible=true;
                     return todo;
                 })
+                
                 break;
             case "Done":
                 list=todos.map((todo)=>{
@@ -39,12 +47,7 @@ import { useEffect, useState } from "react";
                     return todo;
                 })
                 break;
-            default:
-                list=todos.map((todo)=>{
-                    todo.isVisible=true;
-                    return todo;
-                })
-                break;
+            
         }
         setTodos(list)
     }
