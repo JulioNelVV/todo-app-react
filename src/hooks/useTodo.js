@@ -16,6 +16,8 @@ const useTodo=(todos, index, isDone, editIndex, setEditIndex, toggleIsDone, dele
     }
     const deleteHandler=()=>{
         deleteTodo(newTodos,index);
+     
+        
     }
 
     useEffect(()=>{
@@ -26,7 +28,7 @@ const useTodo=(todos, index, isDone, editIndex, setEditIndex, toggleIsDone, dele
         }
         toggleIsDone(newTodos,index,done);
         toggleIsVisible(currentCategory);
-    },[editIndex, done])
+    },[editIndex, done, currentCategory])
     return{
         done,
         onChangeHandler,

@@ -33,6 +33,7 @@ function Todo({todos, name, index, isDone, isVisible, editIndex, setEditIndex, t
                 onClick={deleteHandler}
                 disabled={disable}
             /> 
+            <p>{String(done)}</p>
         </li>
     )
 }

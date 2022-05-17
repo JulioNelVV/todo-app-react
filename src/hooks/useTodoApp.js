@@ -50,7 +50,22 @@ import { useEffect, useState } from "react";
         const filteredTodos=todos.filter((todo,pos)=>pos!==index)
         setTodos(filteredTodos)
     }
-    
+    const deleteCategory=()=>{
+        let filteredTodos=[...todos];
+        switch(currentCategory){
+            case "In progress":
+                filteredTodos=todos.filter((todo)=>todo.isDone===true)
+                break;
+            case "Done":
+                filteredTodos=todos.filter((todo)=>todo.isDone===false)
+                break;
+            default:
+                filteredTodos=[];
+                break;
+                
+        }
+        setTodos(filteredTodos);
+    }
     useEffect(()=>{
         localStorage.setItem("todos",JSON.stringify(todos))
     },[todos])
@@ -65,7 +80,8 @@ import { useEffect, useState } from "react";
         setEditIndex,
         currentCategory,
         setCurrentCategory, 
-        toggleIsVisible
+        toggleIsVisible,
+        deleteCategory
     }
 }
 export default useTodoApp;

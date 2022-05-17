@@ -16,7 +16,8 @@ function TodoApp() {
         setEditIndex,
         currentCategory,
         setCurrentCategory,
-        toggleIsVisible
+        toggleIsVisible,
+        deleteCategory
         
     }=useTodoApp();
    
@@ -61,6 +62,11 @@ function TodoApp() {
                     })
                 }
             </ul>
+            <input
+                type="button"
+                value={`Delete ${currentCategory}`} 
+                onClick={deleteCategory}
+            />
         </div>
      
   )
