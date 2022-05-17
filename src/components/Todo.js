@@ -17,7 +17,7 @@ function Todo({todos, name, index, isDone, isVisible, editIndex, setEditIndex, t
         <li className={isVisible?"show":"hide"}>
             <input
                 type="checkbox"
-                value={done}
+                checked={done}
                 onChange={onChangeHandler} 
             />
             <span>{name}</span>

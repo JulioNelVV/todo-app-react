@@ -1,15 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-
+import useFilter from "../hooks/useFilter.js"
 function Filter({currentCategory, setCurrentCategory, toggleIsVisible}){
-    const [selectedValue, setSelectedValue]=useState(currentCategory)
-    const selectCategory=useRef();
-    const onChangeHandler=()=>{
-        setSelectedValue(selectCategory.current.value)
-    }
-    useEffect(()=>{
-        setCurrentCategory(selectedValue);
-        toggleIsVisible(selectedValue)
-    },[selectedValue])
+    const {
+        selectedValue,
+        onChangeHandler,
+        selectCategory
+    }=useFilter(currentCategory, setCurrentCategory, toggleIsVisible)
     return(
         <div>
             <label>Show: </label>
