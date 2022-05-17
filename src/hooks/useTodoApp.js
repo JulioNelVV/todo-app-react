@@ -20,32 +20,7 @@ import { useEffect, useState } from "react";
         todos[toggleIndex].isDone=done;
         setTodos(todos)
     }
-    const toggleIsVisible=(todos, filterValue)=>{
-        let filteredTodos=[...todos];
-        switch(filterValue){
-            case "In progress":
-                filteredTodos=todos.map((todo)=>{
-                    todo.isDone?todo.isVisible=false:todo.isVisible=true;
-                    return todo
-                })
-                break;
-            case "Done":
-                filteredTodos=todos.map((todo)=>{
-                    todo.isDone?todo.isVisible=true:todo.isVisible=false;
-                    return todo
-                })
-                break;
-            default:
-                filteredTodos=todos.map((todo)=>{
-                    todo.isVisible=true;
-                    return todo
-                })
-                break;
-            
-        }
-        
-        setTodos(filteredTodos)
-    }
+ 
     const deleteTodo=(todos,index)=>{
         const filteredTodos=todos.filter((todo,pos)=>pos!==index)
         setTodos(filteredTodos)
@@ -62,7 +37,7 @@ import { useEffect, useState } from "react";
         deleteTodo,
         editIndex,
         setEditIndex,
-        toggleIsVisible
+        
     }
 }
 export default useTodoApp;

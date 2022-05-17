@@ -2,7 +2,7 @@ import Todo from "./components/Todo.js";
 import FormTodo from "./components/FormTodo.js"
 import "./App.css"
 import useTodoApp from "./hooks/useTodoApp.js";
-import Filter from "./components/Filter.js";
+
 
 function TodoApp() {
     //Declaring the global hook
@@ -14,17 +14,14 @@ function TodoApp() {
         deleteTodo,
         editIndex,
         setEditIndex,
-        toggleIsVisible
+        
     }=useTodoApp();
    
     return(
         
         <div className="App">
             <h1>Todo App</h1>
-            <Filter
-                todos={todos}
-                toggleIsVisible={toggleIsVisible}
-            />
+            
             <FormTodo
                 todos={todos}
                 createTodo={createTodo}
@@ -45,7 +42,6 @@ function TodoApp() {
                                 index={index}
                                 name={todo.name}
                                 isDone={todo.isDone}
-                                isVisible={todo.isVisible}
                                 editIndex={editIndex}
                                 setEditIndex={setEditIndex}
                                 deleteTodo={deleteTodo}
