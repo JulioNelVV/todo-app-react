@@ -46,7 +46,7 @@ function TodoApp() {
                         return(
                             <Todo
                                 todos={todos}
-                                key={index}
+                                key={`${todo.name}-${index}-${String(todo.isDone)}}`}
                                 index={index}
                                 name={todo.name}
                                 isDone={todo.isDone}

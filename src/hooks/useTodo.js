@@ -26,6 +26,7 @@ const useTodo=(todos, index, isDone, editIndex, setEditIndex, toggleIsDone, dele
         }else{
             setDisable(false);
         }
+       
         toggleIsDone(newTodos,index,done);
         toggleIsVisible(currentCategory);
     },[editIndex, done, currentCategory])

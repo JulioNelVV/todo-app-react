@@ -8,7 +8,10 @@ import { useEffect, useState } from "react";
         return initialTodos || [];
     });
     const [editIndex, setEditIndex]=useState(-1);
-    const [currentCategory, setCurrentCategory]=useState("All");
+    const [currentCategory, setCurrentCategory]=useState(()=>{
+        const initalCategory=JSON.parse(localStorage.getItem("currentCategory"));
+        return initalCategory || "All"
+    });
     const createTodo=(todos, newTodo)=>{
         setTodos([...todos, newTodo])
     }
@@ -48,7 +51,10 @@ import { useEffect, useState } from "react";
  
     const deleteTodo=(todos,index)=>{
         const filteredTodos=todos.filter((todo,pos)=>pos!==index)
+        
         setTodos(filteredTodos)
+    
+        
     }
     const deleteCategory=()=>{
         let filteredTodos=[...todos];
@@ -68,6 +74,7 @@ import { useEffect, useState } from "react";
     }
     useEffect(()=>{
         localStorage.setItem("todos",JSON.stringify(todos))
+        localStorage.setItem("currentCategory", JSON.stringify(currentCategory))
     },[todos])
 
     return{
