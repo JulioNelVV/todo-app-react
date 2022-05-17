@@ -2,7 +2,7 @@
 import useTodo from "../hooks/useTodo";
 import "../styles/Todo.css"
 
-function Todo({todos, name, index, isDone, editIndex, setEditIndex, toggleIsDone, deleteTodo}){
+function Todo({todos, name, index, isDone, isVisible, editIndex, setEditIndex, toggleIsDone, deleteTodo, currentCategory, toggleIsVisible}){
     //Declaring the Todo hook
     const {
         done,
@@ -10,11 +10,11 @@ function Todo({todos, name, index, isDone, editIndex, setEditIndex, toggleIsDone
         editHandler,
         disable, 
         deleteHandler
-    }=useTodo(todos, index, isDone, editIndex, setEditIndex, toggleIsDone, deleteTodo)
+    }=useTodo(todos, index, isDone, editIndex, setEditIndex, toggleIsDone, deleteTodo, currentCategory, toggleIsVisible)
  
 
     return(
-        <li>
+        <li className={isVisible?"show":"hide"}>
             <input
                 type="checkbox"
                 value={done}

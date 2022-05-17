@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
         return initialTodos || [];
     });
     const [editIndex, setEditIndex]=useState(-1);
+    const [currentCategory, setCurrentCategory]=useState("All");
     const createTodo=(todos, newTodo)=>{
         setTodos([...todos, newTodo])
     }
@@ -20,11 +21,36 @@ import { useEffect, useState } from "react";
         todos[toggleIndex].isDone=done;
         setTodos(todos)
     }
+    const toggleIsVisible=(currentCategory)=>{
+        let list=[...todos];
+        switch(currentCategory){
+            case "In progress":
+                list=todos.map((todo)=>{
+                    todo.isDone?todo.isVisible=false:todo.isVisible=true;
+                    return todo;
+                })
+                break;
+            case "Done":
+                list=todos.map((todo)=>{
+                    todo.isDone?todo.isVisible=true:todo.isVisible=false;
+                    return todo;
+                })
+                break;
+            default:
+                list=todos.map((todo)=>{
+                    todo.isVisible=true;
+                    return todo;
+                })
+                break;
+        }
+        setTodos(list)
+    }
  
     const deleteTodo=(todos,index)=>{
         const filteredTodos=todos.filter((todo,pos)=>pos!==index)
         setTodos(filteredTodos)
     }
+    
     useEffect(()=>{
         localStorage.setItem("todos",JSON.stringify(todos))
     },[todos])
@@ -37,7 +63,9 @@ import { useEffect, useState } from "react";
         deleteTodo,
         editIndex,
         setEditIndex,
-        
+        currentCategory,
+        setCurrentCategory, 
+        toggleIsVisible
     }
 }
 export default useTodoApp;

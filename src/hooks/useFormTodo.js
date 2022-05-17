@@ -14,6 +14,7 @@ const useFormTodo=(todos,createTodo, editTodo, editIndex)=>{
             const newTodo={
                 name: name,
                 isDone: false,
+                isVisible: true,
             }
             createTodo(newTodos,newTodo)
         }else{

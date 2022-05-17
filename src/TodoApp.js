@@ -2,7 +2,7 @@ import Todo from "./components/Todo.js";
 import FormTodo from "./components/FormTodo.js"
 import "./App.css"
 import useTodoApp from "./hooks/useTodoApp.js";
-
+import Filter from "./components/Filter.js"
 
 function TodoApp() {
     //Declaring the global hook
@@ -14,6 +14,9 @@ function TodoApp() {
         deleteTodo,
         editIndex,
         setEditIndex,
+        currentCategory,
+        setCurrentCategory,
+        toggleIsVisible
         
     }=useTodoApp();
    
@@ -21,7 +24,11 @@ function TodoApp() {
         
         <div className="App">
             <h1>Todo App</h1>
-            
+            <Filter 
+                currentCategory={currentCategory}
+                setCurrentCategory={setCurrentCategory}
+                toggleIsVisible={toggleIsVisible}
+            />
             <FormTodo
                 todos={todos}
                 createTodo={createTodo}
@@ -42,10 +49,13 @@ function TodoApp() {
                                 index={index}
                                 name={todo.name}
                                 isDone={todo.isDone}
+                                isVisible={todo.isVisible}
                                 editIndex={editIndex}
                                 setEditIndex={setEditIndex}
                                 deleteTodo={deleteTodo}
                                 toggleIsDone={toggleIsDone}
+                                currentCategory={currentCategory}
+                                toggleIsVisible={toggleIsVisible}
                             />
                         )
                     })

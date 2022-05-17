@@ -1,30 +1,31 @@
 import { useEffect, useState } from "react";
 
-const useTodo=(todos, index, isDone, editIndex, setEditIndex, toggleIsDone, deleteTodo)=>{
-    const [done, setDone]=useState(isDone)
-    const [disable, setDisable]=useState(false)
+const useTodo=(todos, index, isDone, editIndex, setEditIndex, toggleIsDone, deleteTodo, currentCategory, toggleIsVisible)=>{
+    const [done, setDone]=useState(isDone);
+    const [disable, setDisable]=useState(false);
     const newTodos=[...todos];
     
    
     const onChangeHandler=()=>{
-        setDone(!done)
+        setDone(!done);
     }
 
     const editHandler=()=>{
-        setEditIndex(index)
+        setEditIndex(index);
         
     }
     const deleteHandler=()=>{
-        deleteTodo(newTodos,index)
+        deleteTodo(newTodos,index);
     }
 
     useEffect(()=>{
         if(editIndex!==-1){
-            setDisable(true)
+            setDisable(true);
         }else{
-            setDisable(false)
+            setDisable(false);
         }
-        toggleIsDone(newTodos,index,done)
+        toggleIsDone(newTodos,index,done);
+        toggleIsVisible(currentCategory);
     },[editIndex, done])
     return{
         done,
