@@ -20,7 +20,7 @@ function Todo({todos, name, index, isDone, isVisible, editIndex, setEditIndex, t
                 checked={done}
                 onChange={onChangeHandler} 
             />
-            <span>{name}</span>
+            <span className={isDone?"done":"undone"}>{name}</span>
             <input 
                 type="button"
                 value="Edit"

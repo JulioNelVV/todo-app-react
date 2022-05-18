@@ -4,3 +4,11 @@
 .show{
     display: block;
 }
+.done{
+    text-decoration: line-through;
+    color: gray;
+}
+.undone{
+    text-decoration: none;
+    color: #000;
+}

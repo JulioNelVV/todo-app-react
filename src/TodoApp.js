@@ -24,7 +24,7 @@ function TodoApp() {
     return(
         
         <div className="App">
-            <h1>Todo App</h1>
+            <h1>To do App</h1>
             <Filter 
                 currentCategory={currentCategory}
                 setCurrentCategory={setCurrentCategory}
@@ -45,7 +45,7 @@ function TodoApp() {
                     (
                         todos.every((todo)=>todo.isVisible===false)
                         ?
-                        <li>The {currentCategory} is empty</li>
+                        <li>The {currentCategory} category is empty</li>
                         :
                         todos.map((todo, index)=>{
 
