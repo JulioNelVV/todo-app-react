@@ -5,6 +5,7 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
+    align-items: center;
 }
 .header{
     background-color: var(--dark-primary-color);
@@ -25,7 +26,7 @@ h1{
     text-align: center;
 }
 .empty-category{
-    width: 90%;
+    width: 100%;
     margin: 1rem auto;
     border: 1px solid var(--dark-primary-color);
     border-left: 0.8rem solid var(--dark-primary-color);
@@ -33,11 +34,14 @@ h1{
     padding: 0.5rem;
     border-radius: 0.5rem;
     text-align: center;
+
 }
 .todos{
-    width: 100%;
+    width: 95%;
     margin: auto;
     text-align: center;
+    flex-grow: 1;
+ 
 }
 .delete{
     text-align: center;
@@ -53,4 +57,29 @@ h1{
 }
 .delete:hover{
    opacity: 0.9;
+}
+.--show{
+    display: block;
+
+}
+.--hide{
+    display: none;
+}
+@media  only screen and (min-width: 768px) {
+    .App{
+       flex-flow: row wrap;
+       justify-content: space-evenly;
+       align-items: center;
+    }
+    .header{
+        order: 1;
+    }
+    .todos{
+        width: 100%;
+        order: 4;
+    }
+    .delete{
+        order: 5;
+    }
+    
 }

@@ -77,7 +77,7 @@ function TodoApp() {
                 type="button"
                 value={`Delete ${currentCategory}`} 
                 onClick={deleteCategory}
-                className="delete"
+                className={`delete ${todos.length===0?"--hide":"--show"}`}
             />
         </div>
      

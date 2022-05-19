@@ -1,9 +1,11 @@
 .form-todo{
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
-    width: 100%;
+    align-content: center;
+    width: 95%; 
+    
 }
 .form-todo__text{
     padding: 0.4rem;
@@ -11,7 +13,9 @@
     border: 1px solid var(--light-primary-color);
     border-radius: 0.5rem;
     box-shadow: 0px 2px 5px 2px #AAA;
-    color: var(--primary-text)
+    color: var(--primary-text);
+    flex-basis: 90%;
+   
 }
 .form-todo__text:focus{
     background-color: var(--light-primary-color);
@@ -34,6 +38,8 @@
     cursor: pointer;
     transition: transform 0.5s ease-in-out, rotate 0.5s ease-in-out;
     padding: 0.1rem;
+ 
+    
 }
 .edit{
     background-image: url("../../public/assets/edit.svg");
@@ -43,4 +49,15 @@
 }
 .form-todo__submit:hover{
     transform: scale(1.1) rotateZ(360deg);
+}
+@media only screen and (min-width:768px){
+    .form-todo{
+        width: 60%;
+        order:2;
+        
+    }
+    .form-todo__text{
+        flex-basis: 90%;
+        padding: 0.8rem;
+    }
 }

@@ -2,17 +2,18 @@
     width: 100%;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
+    align-content: center;
     color: var(--primary-text);
     padding: 1rem;
 }
 .filter__label{
-    flex-basis: 20%;
+    flex-basis: 10%;
     color: inherit;
 }
 .filter__select{
-    flex-basis: 70%;
+    flex-basis: 80%;
     color: var(--text-icons-color);
     padding: 0.2rem;
     text-align: center;
@@ -30,4 +31,11 @@
 
 .filter__select:focus{
     outline: var(--dark-primary-color);
+}
+@media only screen and (min-width:768px){
+    .filter{
+        width: 30%;
+        order: 3;
+        padding: 0;
+    }
 }
