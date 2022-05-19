@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 const useFormTodo=(todos,createTodo, editTodo, editIndex)=>{
     const [name, setName]=useState("");
-    const [submitValue, setSubmitValue]=useState("Add")
+    const [submitValue, setSubmitValue]=useState("add")
     const nameInput=useRef();
     const newTodos=[...todos];
     
@@ -23,7 +23,7 @@ const useFormTodo=(todos,createTodo, editTodo, editIndex)=>{
 
         nameInput.current.focus();
         setName("");
-        setSubmitValue("Add")
+        setSubmitValue("add")
     }
 
     const onChangeHandler=()=>{
@@ -33,11 +33,11 @@ const useFormTodo=(todos,createTodo, editTodo, editIndex)=>{
     useEffect(()=>{
         if(editIndex===-1){
             setName("")
-            setSubmitValue("Add");
+            setSubmitValue("add");
         }else{
             
             setName(newTodos[editIndex].name)
-            setSubmitValue("Edit");
+            setSubmitValue("edit");
         }
         nameInput.current.focus();
     },[editIndex])

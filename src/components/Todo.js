@@ -6,7 +6,7 @@ function Todo({todos, name, index, isDone, isVisible, editIndex, setEditIndex, t
     //Declaring the Todo hook
     const {
         done,
-        onChangeHandler,
+        isDoneHandler,
         editHandler,
         disable, 
         deleteHandler
@@ -22,9 +22,8 @@ function Todo({todos, name, index, isDone, isVisible, editIndex, setEditIndex, t
                 {name}
             </span>
             <input
-                type="checkbox"
-                checked={done}
-                onChange={onChangeHandler} 
+                type="button"
+                onClick={isDoneHandler} 
                 className="todo__button --checkbox"
             />
             <input 

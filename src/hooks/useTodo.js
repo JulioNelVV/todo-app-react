@@ -6,7 +6,7 @@ const useTodo=(todos, index, isDone, editIndex, setEditIndex, toggleIsDone, dele
     const newTodos=[...todos];
     
    
-    const onChangeHandler=()=>{
+    const isDoneHandler=()=>{
         setDone(!done);
     }
 
@@ -30,7 +30,7 @@ const useTodo=(todos, index, isDone, editIndex, setEditIndex, toggleIsDone, dele
     },[editIndex, done, currentCategory])
     return{
         done,
-        onChangeHandler,
+        isDoneHandler,
         editHandler,
         disable, 
         deleteHandler

@@ -21,19 +21,25 @@
     color: var(--secondary-text);
 }
 .form-todo__submit{
-    width: 2.2rem;
-    height: 2.2rem;
+    width: 2rem;
+    height: 2rem;
     box-shadow: 0px 2px 5px 2px #AAA;
     border-radius: 50%;
     border: none;
     color: transparent;
-    background-image: url("../../public/assets/add.svg");
     background-size: 60% 60%;
     background-repeat: no-repeat;
     background-position: center;
     background-color: var(--dark-primary-color);
     cursor: pointer;
-    transition: 0.5s ease-in-out all;
+    transition: transform 0.5s ease-in-out, rotate 0.5s ease-in-out;
+    padding: 0.1rem;
+}
+.edit{
+    background-image: url("../../public/assets/edit.svg");
+}
+.add{
+    background-image: url("../../public/assets/add.svg");
 }
 .form-todo__submit:hover{
     transform: scale(1.1) rotateZ(360deg);

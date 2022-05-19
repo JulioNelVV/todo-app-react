@@ -26,8 +26,8 @@ function FormTodo({todos,createTodo, editTodo, editIndex}){
                 />
             <input
                 type="submit"
-                value={submitValue}
-                className="form-todo__submit"
+                
+                className={`form-todo__submit ${submitValue}`}
             />
  
         </form>
