@@ -7,20 +7,16 @@
   --primary-text: #212121;
   --secondary-text: #757575;
   --divider-color: #BDBDBD;
+  
 }
 *{
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   list-style: none;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-body {
-
   font-family: 'Roboto', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  
 }
+
 
 

@@ -14,10 +14,10 @@ function Todo({todos, name, index, isDone, isVisible, editIndex, setEditIndex, t
  
 
     return(
-        <li className={`todo ${isVisible?"show":"hide"}`}>
+        <li className={`todo ${isVisible?"show":"hide"} ${isDone?"done":"undone"}`}>
            
             <span
-                className={`todo__name ${isDone?"done":"undone"}`}
+                className="todo__name"
             >
                 {name}
             </span>

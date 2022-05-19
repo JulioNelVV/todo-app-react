@@ -1,27 +1,28 @@
 
 .App{
-    width: 100%;
+    width: 100vw;
     min-height: 100vh;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
-    align-items: center;
-    
 }
 .header{
     background-color: var(--dark-primary-color);
     color: var(--text-icons-color);
-    width: inherit;
+    width: 100vw;
     text-align: center;
     box-shadow: 0px 2px 5px 2px #AAA;
-    height: 20vh;
+    height: 15vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: auto;
+    margin-top: 0;
 }
 
 h1{
     font-size: 2rem;
+    text-align: center;
 }
 .empty-category{
     width: 90%;
@@ -46,8 +47,9 @@ h1{
     background-color: var(--dark-primary-color);
     color: var(--text-icons-color);
     cursor: pointer;
+    margin: auto;
     margin-bottom: 1rem;
-    
+    max-width: fit-content;
 }
 .delete:hover{
    opacity: 0.9;
