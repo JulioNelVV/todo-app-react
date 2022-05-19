@@ -14,7 +14,7 @@
     border-radius: 0.5rem;
     box-shadow: 0px 2px 5px 2px #AAA;
     color: var(--primary-text);
-    flex-basis: 90%;
+    flex-basis: 85%;
    
 }
 .form-todo__text:focus{
