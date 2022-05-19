@@ -19,7 +19,7 @@
 }
 .form-todo__text:focus{
     background-color: var(--light-primary-color);
-    border-color: var(--dark-primary-color);
+    border-color: #AAA;
 }
 .form-todo--text::placeholder{
     color: var(--secondary-text);

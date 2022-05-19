@@ -1,7 +1,7 @@
 .todo{
     width: 100%;
     margin: 1rem auto;
-    border: 1px solid var(--dark-primary-color);
+    border: 1px solid #AAA;
     border-left: 0.8rem solid var(--dark-primary-color);
     box-shadow: 2px 5px 3px 0px #AAA;
     padding: 0.3rem;
