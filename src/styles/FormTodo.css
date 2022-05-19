@@ -37,7 +37,7 @@
     background-color: var(--dark-primary-color);
     cursor: pointer;
     transition: transform 0.5s ease-in-out, rotate 0.5s ease-in-out;
-    padding: 0.1rem;
+   
  
     
 }
@@ -54,7 +54,7 @@
     .form-todo{
         width: 60%;
         order:2;
-        
+        height: 20vh;
     }
     .form-todo__text{
         flex-basis: 90%;

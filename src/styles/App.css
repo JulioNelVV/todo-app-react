@@ -59,27 +59,34 @@ h1{
    opacity: 0.9;
 }
 .--show{
-    display: block;
+    visibility: visible;
 
 }
 .--hide{
-    display: none;
+    visibility: hidden;
 }
 @media  only screen and (min-width: 768px) {
     .App{
        flex-flow: row wrap;
-       justify-content: space-evenly;
+       justify-content: space-around;
        align-items: center;
     }
     .header{
         order: 1;
+        height: 20vh;
     }
     .todos{
         width: 100%;
         order: 4;
+        min-height: 50vh;
+        
     }
     .delete{
         order: 5;
+    }
+    .empty-category{
+        width: 70%;
+        padding: 0.8rem;
     }
     
 }
