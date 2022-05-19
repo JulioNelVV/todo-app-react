@@ -16,8 +16,6 @@ const useTodo=(todos, index, isDone, editIndex, setEditIndex, toggleIsDone, dele
     }
     const deleteHandler=()=>{
         deleteTodo(newTodos,index);
-     
-        
     }
 
     useEffect(()=>{

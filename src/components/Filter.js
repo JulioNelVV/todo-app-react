@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import useFilter from "../hooks/useFilter.js"
+import "../styles/Filter.css"
 function Filter({currentCategory, setCurrentCategory, toggleIsVisible}){
     const {
         selectedValue,
@@ -7,14 +8,15 @@ function Filter({currentCategory, setCurrentCategory, toggleIsVisible}){
         selectCategory
     }=useFilter(currentCategory, setCurrentCategory, toggleIsVisible)
     return(
-        <div>
-            <label>Show: </label>
+        <div className="filter">
+            <label className="filter__label">Show: </label>
             <select
+                className="filter__select"
                 value={selectedValue}
                 onChange={onChangeHandler}
                 ref={selectCategory}
             >
-                <option>All</option>
+                <option className="filter__option">All</option>
                 <option>In progress</option>
                 <option>Done</option>
             </select>

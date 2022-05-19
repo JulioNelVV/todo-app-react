@@ -1,6 +1,6 @@
 import Todo from "./components/Todo.js";
 import FormTodo from "./components/FormTodo.js"
-import "./App.css"
+import "./styles/App.css"
 import useTodoApp from "./hooks/useTodoApp.js";
 import Filter from "./components/Filter.js"
 
@@ -24,7 +24,10 @@ function TodoApp() {
     return(
         
         <div className="App">
-            <h1>To do App</h1>
+            <header className="header">
+                <h1>To do App</h1>
+            </header>
+            
             <Filter 
                 currentCategory={currentCategory}
                 setCurrentCategory={setCurrentCategory}
@@ -36,16 +39,16 @@ function TodoApp() {
                 editTodo={editTodo}
                 editIndex={editIndex}
             />
-            <ul>
+            <ul className="todos">
                 {
                     todos.length===0
                     ?
-                    <li>There's no pending to do tasks</li>
+                    <li className="empty-category">There's no pending to do tasks</li>
                     :
                     (
                         todos.every((todo)=>todo.isVisible===false)
                         ?
-                        <li>The {currentCategory} category is empty</li>
+                        <li className="empty-category">The {currentCategory} category is empty</li>
                         :
                         todos.map((todo, index)=>{
 
@@ -74,6 +77,7 @@ function TodoApp() {
                 type="button"
                 value={`Delete ${currentCategory}`} 
                 onClick={deleteCategory}
+                className="delete"
             />
         </div>
      

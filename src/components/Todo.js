@@ -14,24 +14,30 @@ function Todo({todos, name, index, isDone, isVisible, editIndex, setEditIndex, t
  
 
     return(
-        <li className={isVisible?"show":"hide"}>
+        <li className={`todo ${isVisible?"show":"hide"}`}>
+           
+            <span
+                className={`todo__name ${isDone?"done":"undone"}`}
+            >
+                {name}
+            </span>
             <input
                 type="checkbox"
                 checked={done}
                 onChange={onChangeHandler} 
+                className="todo__button --checkbox"
             />
-            <span className={isDone?"done":"undone"}>{name}</span>
             <input 
                 type="button"
-                value="Edit"
                 onClick={editHandler}
                 disabled={disable}
+                className="todo__button --edit"
             />
             <input 
                 type="button"
-                value="Delete"
                 onClick={deleteHandler}
                 disabled={disable}
+                className="todo__button --delete"
             /> 
         </li>
     )
