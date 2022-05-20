@@ -1,11 +1,12 @@
 
 .App{
     width: 100vw;
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
     align-items: center;
+    
 }
 .header{
     background-color: var(--dark-primary-color);
@@ -28,7 +29,7 @@ h1{
 .empty-category{
     width: 100%;
     margin: 1rem auto;
-    border: 1px solid var(--dark-primary-color);
+    border: 1px solid #AAA;
     border-left: 0.8rem solid var(--dark-primary-color);
     box-shadow: 2px 5px 3px 0px #AAA;
     padding: 0.5rem;
@@ -44,9 +45,10 @@ h1{
     width: 95%;
     margin: auto;
     text-align: center;
+    min-height: 30vh;
     flex-grow: 1;
- 
 }
+
 .delete{
     text-align: center;
     padding: 0.4rem;
@@ -74,6 +76,8 @@ h1{
        flex-flow: row wrap;
        justify-content: space-around;
        align-items: center;
+       align-content: center;
+       
     }
     .header{
         order: 1;

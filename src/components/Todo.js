@@ -30,13 +30,13 @@ function Todo({todos, name, index, isDone, isVisible, editIndex, setEditIndex, t
                 type="button"
                 onClick={editHandler}
                 disabled={disable}
-                className="todo__button --edit"
+                className={`todo__button --edit ${disable?"--disable":"--able"}`}
             />
             <input 
                 type="button"
                 onClick={deleteHandler}
                 disabled={disable}
-                className="todo__button --delete"
+                className={`todo__button --delete ${disable?"--disable":"--able"}`}
             /> 
         </li>
     )

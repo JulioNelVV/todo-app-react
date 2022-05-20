@@ -59,6 +59,12 @@
 .--delete{
     background-image: url("../../public/assets/delete.svg");
 }
+.--able{
+opacity: 1;
+}
+.--disable{
+    opacity: 0.6;
+}
 .hide{
     display: none;
 }

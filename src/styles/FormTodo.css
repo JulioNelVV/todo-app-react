@@ -5,7 +5,7 @@
     align-items: center;
     align-content: center;
     width: 95%; 
-    
+    height: 15vh;
 }
 .form-todo__text{
     padding: 0.4rem;

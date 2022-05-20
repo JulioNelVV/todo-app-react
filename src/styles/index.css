@@ -1,7 +1,7 @@
 :root{
   --primary-color: #3F51B5;
   --dark-primary-color:#212b6c;
-  --light-primary-color: #c0d7ff;
+  --light-primary-color: #e1eafb;
   --text-icons-color: #FFFFFF;
   --accent-color: #448AFF;
   --primary-text: #212121;
@@ -16,6 +16,9 @@
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
+}
+body{
+  overflow-x: hidden;
 }
 @media only screen and (min-width: 768px){
   *{
