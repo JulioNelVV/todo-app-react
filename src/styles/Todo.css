@@ -1,15 +1,15 @@
 .todo{
-    width: 100%;
     margin: 1rem auto;
-    border: 1px solid #AAA;
-    border-left: 0.8rem solid var(--dark-primary-color);
-    box-shadow: 2px 5px 3px 0px #AAA;
     padding: 0.3rem;
+    width: 100%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+    border: 1px solid var(--divider-color);
+    border-left: 0.8rem solid var(--dark-primary-color);
     border-radius: 0.5rem;
+    box-shadow: 2px 5px 3px 0px var(--divider-color);
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
 }
@@ -18,43 +18,39 @@
 }
 
 .todo__name{
+    margin-right: 0.1rem;
     display: block;
     flex-basis: 68%;
-
-    text-align: justify;
     color: var(--primary-text);
-    margin-right: 0.1rem;
+    text-align: justify;
     overflow-x: hidden;
 }
 .todo__button{
-    display: block;
+    margin-right: 0.1rem;
     min-width: 1.8rem;
     min-height: 1.8rem;
+    display: block;
+    flex-shrink: 0;
     border: none;
     border-radius: 50%;
+    box-shadow: 0px 2px 5px 2px var(--divider-color);
     outline: none;
     cursor: pointer;
-    box-shadow: 0px 2px 5px 2px #AAA;
     transition: transform 0.3s ease-in-out;
-    flex-shrink: 0;
     background-size: 60% 60%;
     background-repeat: no-repeat;
     background-position: center;
     background-color: var(--dark-primary-color);
-    margin-right: 0.1rem;
 }
 .todo__button:hover{
     transform: scale(1.1);
 }
+/*BEM modifiers*/
 .--checkbox{
-
     background-image: url("../../public/assets/check.svg");
-
-
 }
 .--edit{
     background-image: url("../../public/assets/edit.svg");
-
 }
 .--delete{
     background-image: url("../../public/assets/delete.svg");
@@ -72,19 +68,20 @@ opacity: 1;
     display: flex;
 }
 .--done{
-    text-decoration: line-through;
     color: var(--secondary-text);
+    text-decoration: line-through;
     opacity: 0.7;
 }
 .--undone{
+    color: var(--primary-text);
     text-decoration: none;
-    color: #000;
     opacity: 1;
 }
+/*For large devices*/
 @media only screen and (min-width:768px){
     .todo{
-        width: 70%;
         padding: 0.8rem;
+        width: 70%;
     }
     .todo__name{
         flex-basis: 80%;

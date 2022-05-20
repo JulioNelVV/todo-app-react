@@ -5,21 +5,20 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
-    align-items: center;
-    
+    align-items: center;   
 }
 .header{
-    background-color: var(--dark-primary-color);
-    color: var(--text-icons-color);
+    margin: auto;
+    margin-top: 0;
     width: 100vw;
-    text-align: center;
-    box-shadow: 0px 2px 5px 2px #AAA;
     height: 15vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
-    margin-top: 0;
+    color: var(--text-icons-color);
+    background-color: var(--dark-primary-color);
+    box-shadow: 0px 2px 5px 2px var(--divider-color);
+    text-align: center;
 }
 
 h1{
@@ -27,13 +26,13 @@ h1{
     text-align: center;
 }
 .empty-category{
-    width: 100%;
     margin: 1rem auto;
-    border: 1px solid #AAA;
-    border-left: 0.8rem solid var(--dark-primary-color);
-    box-shadow: 2px 5px 3px 0px #AAA;
     padding: 0.5rem;
+    width: 100%;
+    border: 1px solid var(--divider-color);
+    border-left: 0.8rem solid var(--dark-primary-color);
     border-radius: 0.5rem;
+    box-shadow: 2px 5px 3px 0px var(--divider-color);
     text-align: center;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
@@ -42,28 +41,29 @@ h1{
     transform: translateY(-0.2rem);
 }
 .todos{
-    width: 95%;
     margin: auto;
-    text-align: center;
+    width: 95%;
     min-height: 30vh;
     flex-grow: 1;
+    text-align: center;
 }
 
 .delete{
-    text-align: center;
-    padding: 0.4rem;
-    border-radius: 0.5rem;
-    border: none;
-    background-color: var(--dark-primary-color);
-    color: var(--text-icons-color);
-    cursor: pointer;
     margin: auto;
     margin-bottom: 1rem;
+    padding: 0.4rem;
     max-width: fit-content;
+    color: var(--text-icons-color);
+    background-color: var(--dark-primary-color);
+    border: none;
+    border-radius: 0.5rem;
+    text-align: center;
+    cursor: pointer;
 }
 .delete:hover{
    opacity: 0.9;
 }
+/*BEM modifiers*/
 .--visible{
     visibility: visible;
 
@@ -71,23 +71,22 @@ h1{
 .--hiden{
     visibility: hidden;
 }
+/*For large devices*/
 @media  only screen and (min-width: 768px) {
     .App{
        flex-flow: row wrap;
        justify-content: space-around;
        align-items: center;
        align-content: center;
-       
     }
     .header{
-        order: 1;
         height: 20vh;
+        order: 1;
     }
     .todos{
         width: 100%;
-        order: 4;
         min-height: 50vh;
-        
+        order: 4;    
     }
     .delete{
         order: 5;
