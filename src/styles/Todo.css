@@ -65,20 +65,21 @@ opacity: 1;
 .--disable{
     opacity: 0.6;
 }
-.hide{
+.--hide{
     display: none;
 }
-.show{
+.--show{
     display: flex;
 }
-.done{
+.--done{
     text-decoration: line-through;
     color: var(--secondary-text);
     opacity: 0.7;
 }
-.undone{
+.--undone{
     text-decoration: none;
     color: #000;
+    opacity: 1;
 }
 @media only screen and (min-width:768px){
     .todo{

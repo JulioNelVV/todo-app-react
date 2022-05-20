@@ -41,10 +41,10 @@
  
     
 }
-.edit{
+.--edit{
     background-image: url("../../public/assets/edit.svg");
 }
-.add{
+.--add{
     background-image: url("../../public/assets/add.svg");
 }
 .form-todo__submit:hover{

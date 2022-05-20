@@ -1,11 +1,11 @@
 import Todo from "./components/Todo.js";
 import FormTodo from "./components/FormTodo.js"
-import "./styles/App.css"
 import useTodoApp from "./hooks/useTodoApp.js";
 import Filter from "./components/Filter.js"
+import "./styles/TodoApp.css"
 
 function TodoApp() {
-    //Declaring the global hook
+    //Declaring the global custom hook
     const {
         todos,
         createTodo,
@@ -43,12 +43,16 @@ function TodoApp() {
                 {
                     todos.length===0
                     ?
-                    <li className="empty-category">There's no pending to do tasks</li>
+                    <li className="empty-category">
+                        There's no pending to do tasks
+                    </li>
                     :
                     (
                         todos.every((todo)=>todo.isVisible===false)
                         ?
-                        <li className="empty-category">The {currentCategory} category is empty</li>
+                        <li className="empty-category">
+                            The {currentCategory} category is empty
+                        </li>
                         :
                         todos.map((todo, index)=>{
 
@@ -74,10 +78,10 @@ function TodoApp() {
                 }
             </ul>
             <input
+                className={`delete ${todos.every((todo)=>todo.isVisible===false)?"--hiden":"--visible"}`}
                 type="button"
                 value={`Delete ${currentCategory}`} 
                 onClick={deleteCategory}
-                className={`delete ${todos.every((todo)=>todo.isVisible===false)?"--hide":"--show"}`}
             />
         </div>
      
