@@ -23,7 +23,7 @@ const useFormTodo=(todos,createTodo, editTodo, editIndex)=>{
     const onSubmitHandler=(e)=>{
         e.preventDefault();
         //if the input value is empty won't do anything
-        if(name===""||name===undefined)return;
+        if(name===""||name===undefined||name.match(/\w+/)===null)return;
  
         /*
             If we are adding or editing an item the new name 
